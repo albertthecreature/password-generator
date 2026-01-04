@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@400;700&family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600&display=swap"
+    />
+    <link rel="stylesheet" href="styles/globals.css" />
+    <link rel="stylesheet" href="./styles/variables.css" />
+    <link rel="stylesheet" href="./styles/style.css" />
+    <title>Password Generator</title>
+  </head>
+  <body class="page">
+    <header class="header">
+      <h1 class="header__title">PASSWORD GENERATOR</h1>
+      <details class="header__details">
+        <summary class="header__details-summary">You can:</summary>
+        <ul class="instruction">
+          <li>
+            change the position of the slider to set the desired number of
+            characters for your password.
+          </li>
+          <li>
+            change the language of your password: choose English, Russian or
+            mixed.
+          </li>
+          <li>
+            change the difficulty level of your password: choose Easy, Medium or
+            Hard level.
+          </li>
+          <li>
+            copy your password without highlighting the area: just click the
+            <span id="copyLink" class="copy-link">"Copy"</span> button.
+          </li>
+          <li>
+            choose ready password from list. copy liked password without
+            highlighting the area: just click it.
+          </li>
+        </ul>
+      </details>
+      <div class="header__container">
+        <input class="password" id="password">
+        <div class="header__range-block">
+          <input
+            type="range"
+            min="8"
+            max="40"
+            value="8"
+            id="inputRange"
+            class="header__inputRange"
+          />
+          <output id="demo" class="header__range-demo"></output>
+        </div>
+        <div class="header__controls">
+          <button type="button" id="copyButton" class="button controls-item">
+            Copy
+          </button>
+          <button type="reset" id="refreshButton" class="button controls-item">
+            Refresh
+          </button>
+          <select
+            name="language"
+            id="languageSelect"
+            class="select controls-item"
+          >
+            <legend>Lang</legend>
+            <option id="option1" value="0">English</option>
+            <option id="option2" value="1">Russian</option>
+            <option id="option3" value="2">Ru & En</option>
+          </select>
+          <select name="level" id="levelSelect" class="select controls-item">
+            <option id="levelOption1" value="0">Easy</option>
+            <option id="levelOption2" value="1">Medium</option>
+            <option id="levelOption3" value="3">Hard</option>
+          </select>
+        </div>
+      </div>
+    </header>
+
+    <!-- Готовые пароли -->
+
+    <article id="readyPasswords" class="readyPasswords">
+      <h2 class="block-title">Ready 5 passwords:</h2>
+      <ul class="ready-passwords__list">
+        <li class="ready-passwords__list-item">
+          <output id="readyPassword1" class="ready-password"></output>
+        </li>
+        <li class="ready-passwords__list-item">
+          <output id="readyPassword2" class="ready-password"></output>
+        </li>
+        <li class="ready-passwords__list-item">
+          <output id="readyPassword3" class="ready-password"></output>
+        </li>
+        <li class="ready-passwords__list-item">
+          <output id="readyPassword4" class="ready-password"></output>
+        </li>
+        <li class="ready-passwords__list-item">
+          <output id="readyPassword5" class="ready-password"></output>
+        </li>
+      </ul>
+    </article>
+
+    <article id="checkYourPassword" class="password-check-block">
+      <h2 class="block-title">Check your password:</h2>
+      <input
+        type="text"
+        id="inputPassword"
+        class="client-password__input"
+        placeholder="Your password"
+      />
+      <div class="marking">
+        <output class="outputMark" id="outputMark">check</output>
+      </div>
+    </article>
+
+    <script src="script.js"></script>
+  </body>
+</html>
