@@ -4,6 +4,9 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" sizes="32x32" href="./icons/favicon.ico" />
+    <link rel="icon" href="./icons/favicon.svg" type="image/svg" />
+    <link rel="apple-touch-icon" href="./icons/favicon.png" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link
       rel="stylesheet"
@@ -43,7 +46,17 @@
         </ul>
       </details>
       <div class="header__container">
-        <input class="password" id="password">
+        <div class="header__password-input">
+          <input type="text" class="password" id="password" />
+          <button
+            for="password"
+            type="button"
+            id="copyButton"
+            class="copy-button button"
+          >
+            Copy
+          </button>
+        </div>
         <div class="header__range-block">
           <input
             type="range"
@@ -56,9 +69,6 @@
           <output id="demo" class="header__range-demo"></output>
         </div>
         <div class="header__controls">
-          <button type="button" id="copyButton" class="button controls-item">
-            Copy
-          </button>
           <button type="reset" id="refreshButton" class="button controls-item">
             Refresh
           </button>
@@ -67,7 +77,6 @@
             id="languageSelect"
             class="select controls-item"
           >
-            <legend>Lang</legend>
             <option id="option1" value="0">English</option>
             <option id="option2" value="1">Russian</option>
             <option id="option3" value="2">Ru & En</option>
@@ -87,31 +96,40 @@
       <h2 class="block-title">Ready 5 passwords:</h2>
       <ul class="ready-passwords__list">
         <li class="ready-passwords__list-item">
-          <output id="readyPassword1" class="ready-password"></output>
+          <input id="readyPassword1" class="ready-password" />
         </li>
         <li class="ready-passwords__list-item">
-          <output id="readyPassword2" class="ready-password"></output>
+          <input id="readyPassword2" class="ready-password" />
         </li>
         <li class="ready-passwords__list-item">
-          <output id="readyPassword3" class="ready-password"></output>
+          <input id="readyPassword3" class="ready-password" />
         </li>
         <li class="ready-passwords__list-item">
-          <output id="readyPassword4" class="ready-password"></output>
+          <input id="readyPassword4" class="ready-password" />
         </li>
         <li class="ready-passwords__list-item">
-          <output id="readyPassword5" class="ready-password"></output>
+          <input id="readyPassword5" class="ready-password" />
         </li>
       </ul>
     </article>
 
     <article id="checkYourPassword" class="password-check-block">
       <h2 class="block-title">Check your password:</h2>
-      <input
-        type="text"
-        id="inputPassword"
-        class="client-password__input"
-        placeholder="Your password"
-      />
+      <div class="client-password-input-block">
+        <input
+          type="text"
+          id="inputPassword"
+          class="client-password__input"
+          placeholder="Your password"
+        />
+        <button
+          id="client-password-button"
+          type="button"
+          class="client-password-copy-button"
+        >
+          Copy
+        </button>
+      </div>
       <div class="marking">
         <output class="outputMark" id="outputMark">check</output>
       </div>

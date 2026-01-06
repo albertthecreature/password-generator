@@ -1,10 +1,9 @@
 .page {
   inline-size: clamp(60vw, 650px, 90vw);
-  margin: 0 auto;
-  background-color: rgb(201, 224, 255);
-  color: #234168;
-  font-size: 16px;
-  font-family: Calibri, sans-serif;
+  background-color: var(--bg-color);
+  color: var(--main-color);
+  font-size: var(--main-font-size);
+  font-family: var(--main-font), sans-serif;
 }
 
 .header {
@@ -16,15 +15,15 @@
 }
 
 .header__title {
-  font-family: "Bebas Neue", sans-serif;
+  font-family: var(--header-font), sans-serif;
   font-size: clamp(3rem, 1rem + 9.4444vw, 5.5rem);
   text-align: center;
   margin-block-end: 10px;
 }
 
 .header__details {
-  border: 1px solid #234168;
-  border-radius: 5px;
+  border: 1px solid var(--main-color);
+  border-radius: 15px;
   padding-inline: 10px;
   padding-block: 10px;
 }
@@ -39,7 +38,7 @@
 
 .header__container {
   display: grid;
-  grid-template-columns: 35% 1fr;
+  grid-template-columns: 50% 1fr;
   grid-template-rows: 1fr min-content;
   gap: 20px;
 }
@@ -53,45 +52,69 @@
   grid-row: 2;
 }
 
-.password {
-  grid-column: span 2;
-  font-family: "Courier New",monospace;
+.header__password-input {
+  font-family: var(--accent-font), monospace;
   font-weight: 600;
-  min-width: 150px;
-  max-width: 100%;
   font-size: 1.5em;
+  grid-column: span 2;
+  display: flex;
+  inline-size: 100%;
+}
+
+.password {
+  font-weight: 600;
+  min-inline-size: 150px;
+  inline-size: 100%;
   background-color: transparent;
   padding: 10px;
   border: 3px solid;
-  border-radius: 5px;
+  border-radius: 15px 0 0 15px;
   word-break: keep-all;
 }
 
+.header__password-input .copy-button {
+  font-weight: 600;
+  padding-inline: 20px;
+  border: 3px solid;
+  border-radius: 0 15px 15px 0;
+  background-image: linear-gradient(to right, var(--bg-color), var(--hover-color));
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.header__password-input .copy-button:hover {
+  background-color: var(--hover-color);
+}
+
+.header__password-input .copy-button:active {
+  background-color: var(--active-color);
+}
+
 .header__inputRange {
-  -webkit-appearance: none;
+  appearance: none;
   background: transparent;
   width: 95%;
 }
 
 .header__inputRange::-webkit-slider-thumb {
-  -webkit-appearance: none;
+  appearance: none;
   margin-top: -7px;
   width: 15px;
   height: 15px;
-  background: #234168;
+  background: var(--main-color);
   transition: 0.3s;
   border-radius: 50%;
-  border: 2px solid #234168;
+  border: 2px solid var(--main-color);
   cursor: pointer;
 }
 
 .header__inputRange::-webkit-slider-runnable-track {
-  -webkit-appearance: none;
+  appearance: none;
   height: 2px;
   align-items: center;
   box-shadow: none;
   border: none;
-  background: #14253c81;
+  background: rgba(100, 143, 199, 0.5);
 }
 
 .header__range-demo {
@@ -102,46 +125,45 @@
 
 .header__controls {
   display: flex;
-  /* gap: 10px; */
   justify-content: space-between;
   grid-row: 2;
   grid-column: 2;
 }
 
 .controls-item {
-  font-family: Calibri, sans-serif;
+  font-family: var(--main-font), sans-serif;
   inline-size: clamp(50px, 97px, 21vw);
   font-size: 1rem;
-  color: #234168;
+  color: var(--main-color);
   background-color: transparent;
-  border: 1px solid currentColor;
-  border-radius: 5px;
+  border: 1px solid var(--main-color);
+  border-radius: 15px;
   padding-block: 5px;
   padding-inline: 15px;
   cursor: pointer;
-  border-color: #234168;
   transition: background-color 0.3s ease;
 }
 
 .controls-item:hover {
-  background-color: #93c0fb;
+  background-color: var(--hover-color);
 }
 
 .controls-item:active {
-  background-color: #4c6d98;
+  background-color: var(--active-color);
 }
 
 .copy-link {
   text-decoration: underline;
   cursor: pointer;
+  transition: color 0.3s ease;
 }
 
 .copy-link:hover {
-  color: #93c0fb;
+  color: var(--hover-color);
 }
 
 .copy-link:active {
-  color: #4c6d98;
+  color: var(--active-color);
 }
 
 .readyPasswords {
@@ -152,7 +174,8 @@
 }
 
 .block-title {
-  margin-block: 35px;
+  margin-block-start: 35px;
+  margin-block-end: 15px;
 }
 
 .ready-passwords__list {
@@ -162,37 +185,40 @@
 }
 
 .ready-passwords__list-item {
-  width: 100%;
+  width: 80%;
+  position: relative;
 }
 
 .ready-password {
   display: block;
-  inline-size: 65%;
+  inline-size: 100%;
   font-size: 20px;
-  border: 1px solid currentColor;
+  border: 1px solid var(--main-color);
+  background-color: transparent;
   padding-inline: 15px;
   padding-block: 5px;
   font-weight: 100;
-  border-radius: 5px;
+  border-radius: 15px;
   cursor: copy;
-  position: relative;
+  transition: background-color 0.3s ease;
 }
 
-.ready-password:hover::after {
-    content: 'Copy';
-    position: absolute;
-    right: 10px;
-    color: rgba(35, 65, 104, 0.7);
-    font-size: 14px;
-    margin-block-start: 3px;
+.ready-passwords__list-item::before {
+  content: "Copy";
+  position: absolute;
+  right: 15px;
+  color: var(--placeholder-color);
+  font-size: 14px;
+  margin-block-start: 8px;
+  z-index: -1;
 }
 
 .ready-password:hover {
-  background-color: #93c0fb;
+  background-color: var(--hover-color);
 }
 
 .ready-password:active {
-  background-color: #4c6d98;
+  background-color: var(--active-color);
 }
 
 .password-check-block {
@@ -200,22 +226,44 @@
   margin-block-end: 50px;
 }
 
+.client-password-input-block {
+  display: flex;
+  gap: 10px;
+}
+
 .client-password__input {
-  inline-size: 65%;
+  inline-size: 100%;
   background-color: transparent;
-  color: #234168;
-  font-family: "Courier New", Courier, monospace;
+  color: var(--main-color);
+  font-family: var(--accent-font), monospace;
   font-size: 1.5em;
   padding: 5px 15px 5px 15px;
   border: 1px solid;
-  border-radius: 5px;
-  border: 1px solid #234168;
+  border-radius: 15px;
+  border: 1px solid var(--main-color);
 }
 
 .client-password__input::placeholder {
-    font-size: 18px;
-    color: rgba(35, 65, 104, 0.7);
+  font-size: 18px;
+  color: var(--placeholder-color);
+}
 
+.client-password-copy-button {
+  font-family: var(--accent-font);
+  inline-size: clamp(50px, 97px, 21vw);
+  font-size: 1.5em;
+  color: var(--main-color);
+  background-color: transparent;
+  border: 1px solid var(--main-color);
+  border-radius: 15px;
+  padding-block: 5px;
+  padding-inline: 15px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.client-password-copy-button:hover {
+  background-color: var(--hover-color);
 }
 
 .marking {
@@ -231,7 +279,7 @@
     grid-template-rows: 1fr 1fr 1fr;
   }
 
-  .password {
+  .header__password-input {
     grid-column: 1;
     grid-row: 1;
   }
@@ -245,6 +293,10 @@
     grid-column: 1;
     grid-row: 3;
     gap: 0;
+  }
+
+  .ready-passwords__list-item {
+    inline-size: 100%;
   }
 
   .ready-password {

@@ -10,29 +10,33 @@ const readyPassword3 = document.getElementById("readyPassword3");
 const readyPassword4 = document.getElementById("readyPassword4");
 const readyPassword5 = document.getElementById("readyPassword5");
 const inputPassword = document.getElementById("inputPassword");
+const clientPasswordCopyButton = document.getElementById("client-password-button");
+const outputMark = document.getElementById("outputMark");
+
 
 // Дневной/ночной режим (демо)
 
-// const date = new Date()
+// const date = new Date();
 
 // if (date.getHours() <= 6 || date.getHours() >= 18) {
-//     document.body.style.backgroundColor = 'black'
-//     document.body.style.color = '#648fc7'
-//     copyButton.style.color = '#648fc7'
-//     copyButton.style.borderColor = '#648fc7'
-//     refreshButton.style.color = '#648fc7'
-//     refreshButton.style.borderColor = '#648fc7'
-//     languageSelect.style.color = '#648fc7'
-//     languageSelect.style.borderColor = '#648fc7'
-//     levelSelect.style.color = '#648fc7'
-//     levelSelect.style.borderColor = '#648fc7'
-//     inputPassword.style.color = '#648fc7'
-//     inputPassword.style.borderColor = '#648fc7'
-//     readyPassword1.style.borderColor = '#648fc7'
-//     readyPassword2.style.borderColor = '#648fc7'
-//     readyPassword3.style.borderColor = '#648fc7'
-//     readyPassword4.style.borderColor = '#648fc7'
-//     readyPassword5.style.borderColor = '#648fc7'
+//   var lightBlue = "#648fc7";
+//   document.body.style.backgroundColor = "#000";
+//   document.body.style.color = lightBlue;
+//   copyButton.style.color = lightBlue;
+//   copyButton.style.borderColor = lightBlue;
+//   refreshButton.style.color = lightBlue;
+//   refreshButton.style.borderColor = lightBlue;
+//   languageSelect.style.color = lightBlue;
+//   languageSelect.style.borderColor = lightBlue;
+//   levelSelect.style.color = lightBlue;
+//   levelSelect.style.borderColor = lightBlue;
+//   inputPassword.style.color = lightBlue;
+//   inputPassword.style.borderColor = lightBlue;
+//   readyPassword1.style.borderColor = lightBlue;
+//   readyPassword2.style.borderColor = lightBlue;
+//   readyPassword3.style.borderColor = lightBlue;
+//   readyPassword4.style.borderColor = lightBlue;
+//   readyPassword5.style.borderColor = lightBlue;
 // }
 
 // Функция выбора языка пароля
@@ -103,25 +107,25 @@ function readyPasswordGenerator() {
 // присваиваем переменным readyPassword1...readyPassword5 заговленные пароли
 // ниже функция копирования пароля в буфер обмена
 
-readyPassword1.innerHTML = readyPasswordGenerator();
+readyPassword1.value = readyPasswordGenerator();
 readyPassword1.onclick = function () {
   navigator.clipboard.writeText(readyPassword1.value);
 };
 
-readyPassword2.innerHTML = readyPasswordGenerator();
+readyPassword2.value = readyPasswordGenerator();
 readyPassword2.onclick = function () {
   navigator.clipboard.writeText(readyPassword2.value);
 };
 
-readyPassword3.innerHTML = readyPasswordGenerator();
+readyPassword3.value = readyPasswordGenerator();
 readyPassword3.onclick = function () {
   navigator.clipboard.writeText(readyPassword3.value);
 };
-readyPassword4.innerHTML = readyPasswordGenerator();
+readyPassword4.value = readyPasswordGenerator();
 readyPassword4.onclick = function () {
   navigator.clipboard.writeText(readyPassword4.value);
 };
-readyPassword5.innerHTML = readyPasswordGenerator();
+readyPassword5.value = readyPasswordGenerator();
 readyPassword5.onclick = function () {
   navigator.clipboard.writeText(readyPassword5.value);
 };
@@ -214,10 +218,16 @@ copyLink.onclick = function () {
   navigator.clipboard.writeText(generatedPassword); // копирует значение поля "ПАРОЛЬ"
 };
 
+// Функция проверки пароля пользователя
+
 function checkPassword(string) {
   let numberPattern = /[0-9]/g;
   let symbolsPattern = /[!#$%&'()*+,-./:;<=>?@^_`\ {|}~]/g;
   let lettersPattern = /[a-zA-Zа-яА-Я]/g;
+
+  if (string.length === 0) {
+    return "check";
+  }
 
   if (string.length <= 12) {
     return "BAD PASSWORD. good password extends more symbols";
@@ -242,13 +252,17 @@ function checkPassword(string) {
   } else return "GOOD PASSWORD";
 }
 
-const outputMark = document.getElementById("outputMark");
+// Функция выдачи результата после проверки
 
 inputPassword.onchange = function () {
-  var currentValue = this.value;
-  outputMark.innerHTML = checkPassword(currentValue);
-  inputPassword.style.width = inputPassword.length * 16 + "px";
-  if (checkPassword(currentValue) === "GOOD PASSWORD") {
+  outputMark.value = checkPassword(this.value);
+  if (checkPassword(this.value) === "GOOD PASSWORD") {
     outputMark.style.color = "green";
   } else outputMark.style.color = "red";
 };
+
+// Копирование придуманного пользователем пароля
+
+clientPasswordCopyButton.onclick = function() {
+  navigator.clipboard.writeText(inputPassword.value);
+}
