@@ -16,28 +16,28 @@ const outputMark = document.getElementById("outputMark");
 
 // Дневной/ночной режим (демо)
 
-// const date = new Date();
+const date = new Date();
 
-// if (date.getHours() <= 6 || date.getHours() >= 18) {
-//   var lightBlue = "#648fc7";
-//   document.body.style.backgroundColor = "#000";
-//   document.body.style.color = lightBlue;
-//   copyButton.style.color = lightBlue;
-//   copyButton.style.borderColor = lightBlue;
-//   refreshButton.style.color = lightBlue;
-//   refreshButton.style.borderColor = lightBlue;
-//   languageSelect.style.color = lightBlue;
-//   languageSelect.style.borderColor = lightBlue;
-//   levelSelect.style.color = lightBlue;
-//   levelSelect.style.borderColor = lightBlue;
-//   inputPassword.style.color = lightBlue;
-//   inputPassword.style.borderColor = lightBlue;
-//   readyPassword1.style.borderColor = lightBlue;
-//   readyPassword2.style.borderColor = lightBlue;
-//   readyPassword3.style.borderColor = lightBlue;
-//   readyPassword4.style.borderColor = lightBlue;
-//   readyPassword5.style.borderColor = lightBlue;
-// }
+if (date.getHours() <= 6 || date.getHours() >= 18) {
+  var lightBlue = "#648fc7";
+  document.body.style.backgroundColor = "#000";
+  document.body.style.color = lightBlue;
+  copyButton.style.color = lightBlue;
+  copyButton.style.borderColor = lightBlue;
+  refreshButton.style.color = lightBlue;
+  refreshButton.style.borderColor = lightBlue;
+  languageSelect.style.color = lightBlue;
+  languageSelect.style.borderColor = lightBlue;
+  levelSelect.style.color = lightBlue;
+  levelSelect.style.borderColor = lightBlue;
+  inputPassword.style.color = lightBlue;
+  inputPassword.style.borderColor = lightBlue;
+  readyPassword1.style.borderColor = lightBlue;
+  readyPassword2.style.borderColor = lightBlue;
+  readyPassword3.style.borderColor = lightBlue;
+  readyPassword4.style.borderColor = lightBlue;
+  readyPassword5.style.borderColor = lightBlue;
+}
 
 // Функция выбора языка пароля
 
