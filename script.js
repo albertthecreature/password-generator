@@ -43,16 +43,14 @@ if (date.getHours() <= 6 || date.getHours() >= 18) {
 
 function languageSelection(lang = 0) {
   var str = "";
-  if (lang === 0) {
-    str = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
-  } else if (lang === 1) {
-    str = "абвгдеёжзийклмнопрстуфхцчшщъыьэюяАБВГДЕЁЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯ";
-  } else if (lang === 2) {
-    str =
-      "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZабвгдеёжзийклмнопрстуфхцчшщъыьэюяАБВГДЕЁЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯ";
-  }
-  return str;
+  var eng = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
+  var rus = "абвгдеёжзийклмнопрстуфхцчшщъыьэюяАБВГДЕЁЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯ";
+  var engRus = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZабвгдеёжзийклмнопрстуфхцчшщъыьэюяАБВГДЕЁЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯ";
+  return lang === 0 ? str = eng :
+  lang === 1 ? str = rus :
+  lang === 2 ? str = engRus : 0;
 }
+
 
 // Функция выбора уровня сложности пароля
 
@@ -61,14 +59,9 @@ function levelSelection(lvl = 0) {
   var numbers = "0123456789";
   var symbols = "!#$%&'()*+,-./:;<=>?@[]^_`{|}~";
 
-  if (lvl === 0) {
-    str;
-  } else if (lvl === 1) {
-    str = numbers;
-  } else if (lvl === 2) {
-    str = numbers + symbols;
-  }
-  return str;
+  return lvl === 0 ? str :
+  lvl === 1 ? str = numbers :
+  lvl === 2 ? str = numbers + symbols : 0;
 }
 
 // Функция создания случайного пароля. В агрументах функции количество символов, выбранный язык, выбранный уровень сложности
