@@ -139,7 +139,7 @@
   border: 1px solid var(--main-color);
   border-radius: 15px;
   padding-block: 5px;
-  padding-inline: 15px;
+  padding-inline: 5px;
   cursor: pointer;
   transition: background-color 0.3s ease;
 }
@@ -309,5 +309,11 @@
 
   .client-password__input {
     inline-size: 100%;
+  }
+}
+
+@media (width <= 375px) {
+  .ready-password {
+    font-size: 16px;
   }
 }

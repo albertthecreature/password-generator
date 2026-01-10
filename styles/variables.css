@@ -19,3 +19,17 @@
     --active-color: #4c6d98;
   }
 }
+
+@media (prefers-color-scheme: light) {
+  :root {
+    --main-font: Calibri;
+    --accent-font: "Courier New";
+    --header-font: "Bebas Neue";
+    --bg-color: #c9e0ff;
+    --main-color: #234168;
+    --main-font-size: 16px;
+    --placeholder-color: rgba(35, 65, 104, 0.7);
+    --hover-color: #93c0fb;
+    --active-color: #4c6d98;
+  }
+}
